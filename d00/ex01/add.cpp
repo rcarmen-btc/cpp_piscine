@@ -1,28 +1,31 @@
 #include "main.hpp"
 
-void	add_contact(Phoneliber (&cost)[8]) {
+void	add_contact(Phoneliber &book) {
+
+	std::cout << "	ᶠᶸᶜᵏ♥ᵧₒᵤ" << std::endl;
 
 	std::string fname, lname, nickname, phonenumber, secret;
-	std::cout << "Enter..." << std::endl;
-	std::cout << "	.. first name: ";
-	std::cin >> fname;
+
+	std::cout << "Enter..." << std::endl << "	.. first name: ";
+	getline(std::cin, fname);
 
 	std::cout << "	...last name: ";
-	std::cin >> lname;
+	getline(std::cin, lname);
 
 	std::cout << "	...nickname: ";
-	std::cin >> nickname;
+	getline(std::cin, nickname);
 
 	std::cout << "	...phone number: ";
-	std::cin >> phonenumber;
+	getline(std::cin, phonenumber);
 
 	std::cout << "	...darkest secret: ";
-	std::cin >> secret;
+	getline(std::cin, secret);
 	std::cout << std::endl;
-	std::cout << "================================" << std::endl;
-	std::cout << "= !!!New contact is created!!! =" << std::endl;
-	std::cout << "================================" << std::endl;
+	std::cout << "==========================================" << std::endl;
+	std::cout << "|  !!!A new contact has been created!!!  |" << std::endl;
+	std::cout << "==========================================" << std::endl;
+	std::cout << std::endl;
 
-	cost[cost->get_ci()].set(fname, lname, nickname, phonenumber, secret);
+	book.get_contact(book.get_ci()).set(fname, lname, nickname, phonenumber, secret);
 	return;
 }

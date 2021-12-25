@@ -6,15 +6,15 @@
 #    By: rcarmen <rcarmen@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 12:30:10 by rcarmen           #+#    #+#              #
-#    Updated: 2021/12/20 20:50:18 by rcarmen          ###   ########.fr        #
+#    Updated: 2021/12/24 20:33:05 by rcarmen          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phoneliber
 
-INC = main.hpp ClassMain.hpp\
+INC = main.hpp ClassContact.hpp ClassPhoneliber.hpp\
 
-SRC = ClassMain.cpp main.cpp add.cpp search.cpp\
+SRC = ClassContact.cpp ClassPhoneliber.cpp main.cpp add.cpp search.cpp\
 
 OBJ =	$(patsubst %.cpp, %.o, $(SRC))
 
@@ -26,7 +26,7 @@ D_PATH = $(patsubst %.o, %.d, $(OBJ_PATH))
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror
-OPT_FLUGS = -O0 -g3 -pipe
+OPT_FLUGS = -O0 -g3 -pipe -g
 
 all: od $(NAME)
 

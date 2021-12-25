@@ -2,11 +2,13 @@
 # define MAIN_HPP
 # include <iostream>
 # include <string.h>
-# include "ClassMain.hpp"
+# include <iomanip>
+# include "ClassContact.hpp"
+# include "ClassPhoneliber.hpp"
 
-void	prompt(Phoneliber (&cost)[8]);
-void	add_contact(Phoneliber (&cost)[8]);
-void	search_contact(Phoneliber (&cost)[8]);
+void	prompt(Phoneliber &book);
+void	add_contact(Phoneliber &book);
+int		search_contact(Phoneliber book);
 void	exit_phoneliber();
 
 #endif

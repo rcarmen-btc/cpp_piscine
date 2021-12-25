@@ -1,32 +1,48 @@
 #include "main.hpp"
 #include <string>
 
-void prompt(Phoneliber (&cost)[8]) {
-	while (1)
+
+void greeting() {
+	std::cout	<< std::endl
+				<< std::endl
+				<< std::endl
+				<< "	======Welcome=to=phoneliber======= " << std::endl
+				<< "	| All commands:┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬|" << std::endl
+				<< "	|┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬ADD| " << std::endl
+				<< "	|┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬SEARCH| " << std::endl
+				<< "	|┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴┬┴EXIT| " << std::endl
+				<< "	==================================" << std::endl
+				<< std::endl;
+	return;
+}
+
+void prompt(Phoneliber &book) {
+
+	std::cout << "Enter the command: ";
+	std::string command; 
+	while (std::getline(std::cin, command))
 	{
+		// if (!command.compare("ADD"))
+		if (command == "ADD")
+			add_contact(book);
+		else if (command == "SEARCH")
+			search_contact(book);
+		else if (command == "EXIT")
+			return;
+		else 
+			std::cout << "Command \"" << command << "\" not found" << std::endl;
 		std::cout << "Enter the command: ";
-		std::string command; 
-		std::cin >> command;
-		
-		if (!command.compare("ADD"))
-			add_contact(cost);
-		if (!command.compare("SEARCH"))
-		{
-			search_contact(cost);
-		}
-		// if (!command.compare("EXIT"))
-			// exit_phoneliber();
 	}
+	std::cout << std::endl;
+	return;
 }
 
 int main(void) {
 
-	std::string fname, lname, nickname, phonenumber, secret;
-	Phoneliber costomers[8];
+	Phoneliber book;
 
-	costomers[0].set("F", "L", "N", "P", "S");
-	prompt(costomers);
-
+	greeting();
+	prompt(book);
 	return 0;
 }
 
