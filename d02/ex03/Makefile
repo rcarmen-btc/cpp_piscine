@@ -6,15 +6,15 @@
 #    By: rcarmen <rcarmen@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 12:30:10 by rcarmen           #+#    #+#              #
-#    Updated: 2021/12/22 14:20:00 by rcarmen          ###   ########.fr        #
+#    Updated: 2022/01/01 01:53:52 by rcarmen          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = Fixed
 
-INC = main.hpp \
+INC = Fixed.hpp Point.hpp\
 
-SRC = main.cpp \
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp \
 
 OBJ =	$(patsubst %.cpp, %.o, $(SRC))
 
@@ -24,9 +24,9 @@ SRC_PATH = $(addprefix $(SRC_DIR), $(SRC))
 OBJ_PATH = $(addprefix $(OBJ_DIR), $(OBJ))
 D_PATH = $(patsubst %.o, %.d, $(OBJ_PATH))
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror
-OPT_FLUGS = -O0 -g3 -pipe
+CC = clang++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+OPT_FLUGS = -O0 -g3 -pipe -g
 
 all: od $(NAME)
 
