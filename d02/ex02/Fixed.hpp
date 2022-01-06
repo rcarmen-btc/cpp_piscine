@@ -2,17 +2,18 @@
 # define FIXED_HPP
 # include <math.h>
 # include <ostream>
+# define DEBUG 0
 
 class Fixed {
 
 	int fixed_point;
 	static const int fract_bits = 8;
 public:
-	Fixed( void );
+	Fixed();
+	~Fixed();
 	Fixed(const Fixed &fi);
-	Fixed( const int i );
-	Fixed( const float f );
-	~Fixed( void );
+	Fixed(const int i);
+	Fixed(const float f);
 	friend std::ostream &operator<<(std::ostream &out, const Fixed &f);
 	friend bool operator==(const Fixed &c1, const Fixed &c2);
 	friend bool operator!=(const Fixed &c1, const Fixed &c2);

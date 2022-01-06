@@ -6,7 +6,7 @@
 #    By: rcarmen <rcarmen@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/19 12:30:10 by rcarmen           #+#    #+#              #
-#    Updated: 2022/01/01 01:53:52 by rcarmen          ###   ########.fr        #
+#    Updated: 2022/01/04 09:52:51 by rcarmen          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ $(NAME): $(OBJ_PATH)
 
 VPATH = $(SRC_DIR)
 
-$(OBJ_DIR)%.o: %.cpp
+$(OBJ_DIR)%.o: %.cpp $(INC)
 	$(CC) $(CFLAGS) $(OPT_FLUGS) -c $< -o $@
 	
 od:

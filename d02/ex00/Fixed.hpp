@@ -8,12 +8,12 @@ class Fixed {
 	int fixed_point;
 	static const int fract_bits = 8;
 public:
-	Fixed( void );
+	Fixed();
 	Fixed(const Fixed &fi);
-	~Fixed( void );
+	~Fixed();
 	const Fixed &operator=(const Fixed &f);
-	int getRawBits( void ) const;
-	void setRawBits( int const raw );
+	int getRawBits() const;
+	void setRawBits(int const raw);
 };
 
 #endif

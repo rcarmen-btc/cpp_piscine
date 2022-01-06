@@ -1,37 +1,43 @@
 #include "Fixed.hpp"
 #include "iostream"
 
-Fixed::Fixed( void ) {
+Fixed::Fixed(): fixed_point(0) {
 
-	// std::cout << "Default [constructor] called" << std::endl;
-	fixed_point = 0;
-	return;
+	if (DEBUG)
+		std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::~Fixed() {
+		
+	if (DEBUG)
+		std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &fi) {
 	
-	// std::cout << "Copy [constructor] called" << std::endl;
+	if (DEBUG)
+		std::cout << "Copy constructor called" << std::endl;
 	*this = fi;
-	return;
 }
 
-Fixed::Fixed( const int i ) {
+Fixed::Fixed(const int i) {
 
-	// std::cout << "Form INT to fixed point [constructor] called" << std::endl;
+	if (DEBUG)
+		std::cout << "Int to fixed point constructor called" << std::endl;
 	fixed_point = i << fract_bits;
-	return;
 }
 
-Fixed::Fixed( const float f ) {
+Fixed::Fixed(const float f) {
 
-	// std::cout << "Form FLOAT to fixed point [constructor] called" << std::endl;
+	if (DEBUG)
+		std::cout << "Float to fixed point constructor called" << std::endl;
 	fixed_point = roundf(f * (1 << fract_bits));
-	return;
 }
 
-const Fixed &Fixed::operator=( const Fixed &fi ) {
+const Fixed &Fixed::operator=(const Fixed &fi) {
 
-	// std::cout << "Assignation (operator) called" << std::endl;
+	if (DEBUG)
+		std::cout << "Assignation operator called" << std::endl;
 	fixed_point = fi.fixed_point;
 	return *this; 
 }
@@ -166,10 +172,4 @@ const Fixed &Fixed::max(const Fixed &f1, const Fixed &f2) {
 	if (f1 > f2)
 		return f1;
 	return f2;
-}
-
-Fixed::~Fixed( void ) {
-
-	// std::cout << "Destructor called" << std::endl;
-	return;
 }
